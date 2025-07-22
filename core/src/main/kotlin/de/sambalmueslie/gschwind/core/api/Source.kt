@@ -1,4 +1,6 @@
 package de.sambalmueslie.gschwind.core.api
 
-interface Source {
+interface Source<T> : Emitter<T> {
+    fun start()
+    fun stop()
 }

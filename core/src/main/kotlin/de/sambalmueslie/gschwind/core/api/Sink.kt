@@ -1,4 +1,4 @@
 package de.sambalmueslie.gschwind.core.api
 
-interface Sink {
+interface Sink<T> : Receiver<T> {
 }

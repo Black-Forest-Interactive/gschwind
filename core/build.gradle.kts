@@ -16,8 +16,8 @@ dependencies {
     testImplementation("io.mockk:mockk:1.14.5")
 
     // jackson
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.19.2")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.19.2")
 
     // kotlin
     implementation("org.jetbrains.kotlin:kotlin-reflect:2.2.0")
@@ -32,7 +32,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.10.2")
 
     // test
-    testImplementation("org.testcontainers:junit-jupiter")
+    testImplementation("org.testcontainers:junit-jupiter:1.21.3")
 }
 
 java {
