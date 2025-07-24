@@ -3,12 +3,12 @@ package de.sambalmueslie.gschwind.demo
 import de.sambalmueslie.gschwind.core.api.Operator
 import de.sambalmueslie.gschwind.core.api.Receiver
 import de.sambalmueslie.gschwind.core.api.Sink
-import de.sambalmueslie.gschwind.core.api.Source
+import de.sambalmueslie.gschwind.core.base.BaseSource
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledFuture
 import java.util.concurrent.TimeUnit
 
-class SampleSource : Source<Int>, Runnable {
+class SampleSource(id: String, name: String) : BaseSource<Int>(id, name), Runnable {
 
     companion object {
         private val pool = Executors.newScheduledThreadPool(1)
@@ -41,5 +41,6 @@ class SampleSource : Source<Int>, Runnable {
 
     override fun run() {
         receiver?.receive(counter++)
+        if (counter >= 10) stop()
     }
 }

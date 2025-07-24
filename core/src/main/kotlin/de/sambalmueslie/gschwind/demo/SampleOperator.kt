@@ -3,8 +3,9 @@ package de.sambalmueslie.gschwind.demo
 import de.sambalmueslie.gschwind.core.api.Operator
 import de.sambalmueslie.gschwind.core.api.Receiver
 import de.sambalmueslie.gschwind.core.api.Sink
+import de.sambalmueslie.gschwind.core.base.BaseOperator
 
-class SampleOperator : Operator<Int, String> {
+class SampleOperator(id: String, name: String) : BaseOperator<Int, String>(id, name) {
 
     private var receiver: Receiver<String>? = null
 

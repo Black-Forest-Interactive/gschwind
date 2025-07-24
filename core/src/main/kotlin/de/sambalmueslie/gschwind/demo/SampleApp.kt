@@ -12,9 +12,9 @@ class SampleApp {
     }
 
     fun run() {
-        val source = SampleSource()
-        source.operator(SampleOperator())
-            .connect(SampleSink())
+        val source = SampleSource("", "Sample-Source")
+        source.operator(SampleOperator("", "Sample-Operator"))
+            .connect(SampleSink("", "Sample-Sink"))
 
         val job = StreamJob(source)
         job.start()
