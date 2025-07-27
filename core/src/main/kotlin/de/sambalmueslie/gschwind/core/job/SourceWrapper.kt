@@ -4,7 +4,12 @@ import de.sambalmueslie.gschwind.core.api.Operator
 import de.sambalmueslie.gschwind.core.api.Sink
 import de.sambalmueslie.gschwind.core.api.Source
 
-class SourceWrapper<T>(private val source: Source<T>, val id: String, val name: String) : Source<T> {
+class SourceWrapper<T>(
+    id: String,
+    name: String,
+    private val source: Source<T>
+) : Source<T>, EmitterWrapper<T>(id, name) {
+
     override fun start() {
         source.start()
     }

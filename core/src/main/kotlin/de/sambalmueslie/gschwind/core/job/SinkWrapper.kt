@@ -1,8 +1,14 @@
 package de.sambalmueslie.gschwind.core.job
 
 import de.sambalmueslie.gschwind.core.api.Sink
+import de.sambalmueslie.gschwind.core.api.StreamElement
 
-class SinkWrapper<T>(private val sink: Sink<T>, val id: String, val name: String) : Sink<T> {
+class SinkWrapper<T>(
+    override val id: String,
+    override val name: String,
+    private val sink: Sink<T>
+) : Sink<T>, StreamElement {
+
     override fun receive(value: T) {
         sink.receive(value)
     }

@@ -3,7 +3,12 @@ package de.sambalmueslie.gschwind.core.job
 import de.sambalmueslie.gschwind.core.api.Operator
 import de.sambalmueslie.gschwind.core.api.Sink
 
-class OperatorWrapper<R, E>(private val operator: Operator<R, E>, val id: String, val name: String) : Operator<R, E> {
+class OperatorWrapper<R, E>(
+    id: String,
+    name: String,
+    private val operator: Operator<R, E>
+) : Operator<R, E>, EmitterWrapper<E>(id, name) {
+
     override fun connect(sink: Sink<E>): Sink<E> {
         return operator.connect(sink)
     }

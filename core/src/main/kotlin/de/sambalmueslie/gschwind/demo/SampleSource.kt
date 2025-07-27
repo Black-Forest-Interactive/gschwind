@@ -7,6 +7,7 @@ import de.sambalmueslie.gschwind.core.api.Source
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledFuture
 import java.util.concurrent.TimeUnit
+import kotlin.system.exitProcess
 
 class SampleSource : Source<Int>, Runnable {
 
@@ -41,6 +42,6 @@ class SampleSource : Source<Int>, Runnable {
 
     override fun run() {
         receiver?.receive(counter++)
-        if (counter >= 10) stop()
+        if (counter >= 10) exitProcess(0)
     }
 }

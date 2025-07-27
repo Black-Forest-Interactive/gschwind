@@ -1,7 +1,6 @@
 package de.sambalmueslie.gschwind.demo
 
 import de.sambalmueslie.gschwind.core.builder.stream
-import de.sambalmueslie.gschwind.core.job.StreamJob
 
 class SampleApp {
     companion object {
@@ -15,13 +14,12 @@ class SampleApp {
     fun run() {
 
         val source = SampleSource()
-        source.stream()
+        val stream = source.stream()
             .operator { SampleOperator() }
             .sink { SampleSink() }
+            .build()
 
-
-        val job = StreamJob(source)
-        job.start()
-
+        stream.print()
+        stream.start()
     }
 }

@@ -1,11 +1,13 @@
 package de.sambalmueslie.gschwind.core.builder
 
 import de.sambalmueslie.gschwind.core.api.Source
+import de.sambalmueslie.gschwind.core.job.StreamWrapper
 import java.util.*
 
 
 fun <T> Source<T>.stream(id: String = generateId(), name: String = ""): StreamBuilder<T> {
-    return SourceStreamBuilder(id, name) { this }
+    val stream = StreamWrapper(generateId())
+    return SourceStreamBuilder(stream, id, name) { this }
 }
 
 fun generateId(): String {

@@ -1,39 +1,25 @@
 package de.sambalmueslie.gschwind.core.builder
 
-import de.sambalmueslie.gschwind.core.api.Operator
-import de.sambalmueslie.gschwind.core.api.Sink
 import de.sambalmueslie.gschwind.core.api.Source
-import de.sambalmueslie.gschwind.core.job.OperatorWrapper
-import de.sambalmueslie.gschwind.core.job.SinkWrapper
+import de.sambalmueslie.gschwind.core.job.EmitterWrapper
 import de.sambalmueslie.gschwind.core.job.SourceWrapper
+import de.sambalmueslie.gschwind.core.job.StreamWrapper
 
-class SourceStreamBuilder<T>(
+internal class SourceStreamBuilder<T>(
+    stream: StreamWrapper,
     id: String,
     name: String,
     provider: () -> Source<T>
-) : StreamBuilder<T> {
+) : BaseStreamBuilder<T>(stream) {
 
-    private var source: Source<T> = SourceWrapper(provider.invoke(), id, name)
+    private val source = SourceWrapper(id, name.ifBlank { "Source" }, provider.invoke())
 
-    override fun <E> operator(
-        id: String,
-        name: String,
-        provider: () -> Operator<T, E>
-    ): StreamBuilder<E> {
-        val operator = OperatorWrapper(provider.invoke(), id, name)
-        source.operator(operator)
-        return OperatorStreamBuilder(operator)
+    init {
+        stream.source(source)
     }
 
-    override fun sink(
-        id: String,
-        name: String,
-        provider: () -> Sink<T>
-    ): StreamBuilder<T> {
-        val sink = SinkWrapper(provider.invoke(), id, name)
-        source.connect(sink)
-        return SinkStreamBuilder(source)
+    override fun emitter(): EmitterWrapper<T> {
+        return source
     }
-
 
 }
