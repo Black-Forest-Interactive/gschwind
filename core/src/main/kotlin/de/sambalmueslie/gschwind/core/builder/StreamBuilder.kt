@@ -1,30 +1,40 @@
 package de.sambalmueslie.gschwind.core.builder
 
+import de.sambalmueslie.gschwind.core.api.Operator
 import de.sambalmueslie.gschwind.core.api.Sink
 import de.sambalmueslie.gschwind.core.api.Source
-import de.sambalmueslie.gschwind.core.api.Stream
 
-@StreamDsl
-class StreamBuilder {
-//    private var source: Source? = null
-//    private val operators: MutableList<Operator> = mutableListOf()
-//    private var sink: Sink? = null
+
+interface StreamBuilder<T> {
+    fun <E> operator(id: String = generateId(), name: String = "", provider: () -> Operator<T, E>): StreamBuilder<E>
+    fun sink(id: String = generateId(), name: String = "", provider: () -> Sink<T>): StreamBuilder<T>
+
 //
-//    fun source(block: () -> Source) {
-//        source = block()
+//    private var source: Source<T>? = null
+//
+//    fun source(source: Source<T>, id: String, name: String): StreamBuilder<T> {
+//        this.source = SourceWrapper(source, id, name)
+//        return StreamBuilder()
 //    }
 //
-//    fun operator(block: () -> Operator) {
-//        operators.add(block())
+//
+//    fun <R, E> operator(
+//        id: String = generateId(),
+//        name: String = "",
+//        provider: () -> Operator<R, E>
+//    ): StreamBuilder<T> {
+//        val operator = OperatorWrapper(provider.invoke(), id, name)
+//        return this
 //    }
 //
-//    fun sink(block: () -> Sink) {
-//        sink = block()
+//    fun <S> sink(id: String = generateId(), name: String = "", provider: () -> Sink<S>): StreamBuilder<T> {
+//        val sink = SinkWrapper(provider.invoke(), id, name)
+//        return this
 //    }
 //
-//    fun build(): Stream {
-//        val src = source ?: error("Source must be defined")
-//        val snk = sink ?: error("Sink must be defined")
-//        return Stream(src, operators, snk)
+//    fun build(id: String = generateId(), name: String = ""): Stream {
+//        val operator = StreamWrapper(id, name, source!!)
+//        return operator
 //    }
+
 }

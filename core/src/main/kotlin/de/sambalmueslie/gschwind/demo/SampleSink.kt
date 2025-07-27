@@ -1,9 +1,9 @@
 package de.sambalmueslie.gschwind.demo
 
-import de.sambalmueslie.gschwind.core.base.BaseSink
+import de.sambalmueslie.gschwind.core.api.Sink
 import org.slf4j.LoggerFactory
 
-class SampleSink(id: String, name: String) : BaseSink<String>(id, name) {
+class SampleSink : Sink<String> {
 
     companion object {
         private val logger = LoggerFactory.getLogger(SampleSink::class.java)

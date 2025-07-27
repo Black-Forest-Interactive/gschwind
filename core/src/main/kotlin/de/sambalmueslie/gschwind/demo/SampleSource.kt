@@ -3,12 +3,12 @@ package de.sambalmueslie.gschwind.demo
 import de.sambalmueslie.gschwind.core.api.Operator
 import de.sambalmueslie.gschwind.core.api.Receiver
 import de.sambalmueslie.gschwind.core.api.Sink
-import de.sambalmueslie.gschwind.core.base.BaseSource
+import de.sambalmueslie.gschwind.core.api.Source
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledFuture
 import java.util.concurrent.TimeUnit
 
-class SampleSource(id: String, name: String) : BaseSource<Int>(id, name), Runnable {
+class SampleSource : Source<Int>, Runnable {
 
     companion object {
         private val pool = Executors.newScheduledThreadPool(1)
