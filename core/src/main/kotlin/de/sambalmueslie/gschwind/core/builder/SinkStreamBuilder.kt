@@ -1,7 +1,7 @@
 package de.sambalmueslie.gschwind.core.builder
 
-import de.sambalmueslie.gschwind.core.job.EmitterWrapper
-import de.sambalmueslie.gschwind.core.job.StreamWrapper
+import de.sambalmueslie.gschwind.core.wrapper.EmitterWrapper
+import de.sambalmueslie.gschwind.core.wrapper.StreamWrapper
 
 internal class SinkStreamBuilder<T>(
     stream: StreamWrapper,

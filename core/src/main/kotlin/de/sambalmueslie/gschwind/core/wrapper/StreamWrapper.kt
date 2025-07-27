@@ -1,4 +1,4 @@
-package de.sambalmueslie.gschwind.core.job
+package de.sambalmueslie.gschwind.core.wrapper
 
 import de.sambalmueslie.gschwind.core.api.Stream
 import de.sambalmueslie.gschwind.core.api.StreamElement

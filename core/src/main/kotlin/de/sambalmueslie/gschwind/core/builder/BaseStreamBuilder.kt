@@ -3,10 +3,10 @@ package de.sambalmueslie.gschwind.core.builder
 import de.sambalmueslie.gschwind.core.api.Operator
 import de.sambalmueslie.gschwind.core.api.Sink
 import de.sambalmueslie.gschwind.core.api.Stream
-import de.sambalmueslie.gschwind.core.job.EmitterWrapper
-import de.sambalmueslie.gschwind.core.job.OperatorWrapper
-import de.sambalmueslie.gschwind.core.job.SinkWrapper
-import de.sambalmueslie.gschwind.core.job.StreamWrapper
+import de.sambalmueslie.gschwind.core.wrapper.EmitterWrapper
+import de.sambalmueslie.gschwind.core.wrapper.OperatorWrapper
+import de.sambalmueslie.gschwind.core.wrapper.SinkWrapper
+import de.sambalmueslie.gschwind.core.wrapper.StreamWrapper
 
 abstract class BaseStreamBuilder<T>(
     private val stream: StreamWrapper

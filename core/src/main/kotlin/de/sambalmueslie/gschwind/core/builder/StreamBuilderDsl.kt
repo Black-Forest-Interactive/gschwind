@@ -1,7 +1,7 @@
 package de.sambalmueslie.gschwind.core.builder
 
 import de.sambalmueslie.gschwind.core.api.Source
-import de.sambalmueslie.gschwind.core.job.StreamWrapper
+import de.sambalmueslie.gschwind.core.wrapper.StreamWrapper
 import java.util.*
 
 

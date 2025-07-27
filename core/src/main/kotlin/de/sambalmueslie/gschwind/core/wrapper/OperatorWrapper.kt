@@ -1,4 +1,4 @@
-package de.sambalmueslie.gschwind.core.job
+package de.sambalmueslie.gschwind.core.wrapper
 
 import de.sambalmueslie.gschwind.core.api.Operator
 import de.sambalmueslie.gschwind.core.api.Sink
