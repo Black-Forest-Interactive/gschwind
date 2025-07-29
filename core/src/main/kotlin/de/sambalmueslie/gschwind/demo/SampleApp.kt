@@ -1,6 +1,8 @@
 package de.sambalmueslie.gschwind.demo
 
 import de.sambalmueslie.gschwind.core.builder.stream
+import org.slf4j.LoggerFactory
+import java.lang.Thread.sleep
 
 class SampleApp {
     companion object {
@@ -21,5 +23,12 @@ class SampleApp {
 
         stream.print()
         stream.start()
+
+        val logger = LoggerFactory.getLogger(SampleApp::class.java)
+        while (true) {
+            val stats = stream.stats
+            logger.debug("Received: ${stats.valuesReceived} Sent: ${stats.valuesSent} Error: ${stats.errors}")
+            sleep(500)
+        }
     }
 }

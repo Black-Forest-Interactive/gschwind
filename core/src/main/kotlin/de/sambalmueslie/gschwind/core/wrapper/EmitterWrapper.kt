@@ -2,20 +2,34 @@ package de.sambalmueslie.gschwind.core.wrapper
 
 import de.sambalmueslie.gschwind.core.api.Emitter
 import de.sambalmueslie.gschwind.core.api.Receiver
-import de.sambalmueslie.gschwind.core.api.StreamElement
 
 abstract class EmitterWrapper<T>(
-    override val id: String,
-    override val name: String,
+    id: String,
+    name: String,
     val emitter: Emitter<T>
-) : Emitter<T>, StreamElement {
+) : Emitter<T>, StreamElementWrapper(id, name) {
+
 
     override fun emit(value: T) {
-        emitter.emit(value)
+        try {
+            emitter.emit(value)
+            countSent()
+        } catch (e: Exception) {
+            countError()
+        }
     }
 
     override fun connect(receiver: Receiver<T>) {
-        emitter.connect(receiver)
+        val wrapper = ReceiverWrapper(receiver, this)
+        emitter.connect(wrapper)
     }
 
+    private class ReceiverWrapper<T>(private val receiver: Receiver<T>, private val emitterWrapper: EmitterWrapper<T>) :
+        Receiver<T> {
+        override fun receive(value: T) {
+            emitterWrapper.countSent()
+            receiver.receive(value)
+        }
+
+    }
 }

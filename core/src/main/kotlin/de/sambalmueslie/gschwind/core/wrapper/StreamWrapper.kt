@@ -6,6 +6,21 @@ import de.sambalmueslie.gschwind.core.api.StreamElement
 class StreamWrapper(
     override val id: String
 ) : Stream {
+    override val stats = StreamElementStatsWrapper(0, 0, 0)
+
+    private val changeListener: StreamElementWrapperStatsListener = object : StreamElementWrapperStatsListener {
+        override fun handleReceived() {
+            stats.valuesReceived++
+        }
+
+        override fun handleSent() {
+            stats.valuesSent++
+        }
+
+        override fun handleError() {
+            stats.errors++
+        }
+    }
 
     private val tree = mutableListOf<StreamElementNode>()
     private val nodes = mutableMapOf<String, StreamElementNode>()
@@ -16,6 +31,7 @@ class StreamWrapper(
         tree.add(node)
         nodes.put(source.id, node)
         sources.add(source)
+        source.register(changeListener)
     }
 
     fun <T, E> connect(emitter: EmitterWrapper<T>, operator: OperatorWrapper<T, E>) {
@@ -28,6 +44,7 @@ class StreamWrapper(
         val parent = nodes[emitter.id] ?: throw IllegalArgumentException("No node found with id ${emitter.id}")
         val child = StreamElementNode(sink)
         connect(parent, child)
+        child.element.register(changeListener)
     }
 
     private fun connect(parent: StreamElementNode, child: StreamElementNode) {
@@ -55,7 +72,7 @@ class StreamWrapper(
 }
 
 private data class StreamElementNode(
-    val element: StreamElement,
+    val element: StreamElementWrapper,
     val children: MutableList<StreamElementNode> = mutableListOf()
 ) {
     fun print() {

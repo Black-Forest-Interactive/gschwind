@@ -8,6 +8,7 @@ class OperatorWrapper<R, E>(
     private val operator: Operator<R, E>
 ) : Operator<R, E>, EmitterWrapper<E>(id, name, operator) {
     override fun receive(value: R) {
+        countReceived()
         operator.receive(value)
     }
 
