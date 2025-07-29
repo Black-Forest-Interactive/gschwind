@@ -20,7 +20,7 @@ abstract class BaseStreamBuilder<T>(
         val operator = OperatorWrapper(id, name.ifBlank { "Operator" }, provider.invoke())
         val emitter = emitter()
         stream.connect(emitter, operator)
-        emitter.operator(operator)
+        emitter.connect(operator)
         return OperatorStreamBuilder(stream, operator)
     }
 
