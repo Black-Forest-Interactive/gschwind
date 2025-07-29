@@ -1,16 +1,20 @@
 package de.sambalmueslie.gschwind.core.wrapper
 
 import de.sambalmueslie.gschwind.core.api.Sink
-import de.sambalmueslie.gschwind.core.api.StreamElement
 
 class SinkWrapper<T>(
-    override val id: String,
-    override val name: String,
+    id: String,
+    name: String,
     private val sink: Sink<T>
-) : Sink<T>, StreamElement {
+) : Sink<T>, StreamElementWrapper(id, name) {
 
     override fun receive(value: T) {
-        sink.receive(value)
+        try {
+            countReceived()
+            sink.receive(value)
+        } catch (e: Exception) {
+            countError()
+        }
     }
 
 }
