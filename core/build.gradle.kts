@@ -11,8 +11,8 @@ plugins {
 dependencies {
     implementation("ch.qos.logback:logback-classic:1.5.18")
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.13.3")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.13.3")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.13.4")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.13.4")
     testImplementation("io.mockk:mockk:1.14.5")
 
     // jackson
