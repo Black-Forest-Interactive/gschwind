@@ -28,7 +28,7 @@ class SampleApp {
         val s2 = source.stream()
             .filter { it % 2 == 0 }
             .map { it.toHexString() }
-            .log("Equal Values")
+            .log("Even Values")
             .build()
 
         s1.print()
