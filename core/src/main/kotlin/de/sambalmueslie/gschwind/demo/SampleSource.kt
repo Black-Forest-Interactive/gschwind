@@ -17,6 +17,7 @@ class SampleSource : BaseSource<Int>(), Runnable {
 
 
     override fun start() {
+        if (future != null) return
         future = pool.scheduleAtFixedRate(this, 0, 1, TimeUnit.SECONDS)
     }
 
