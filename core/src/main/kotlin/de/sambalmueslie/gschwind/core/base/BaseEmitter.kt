@@ -4,13 +4,13 @@ import de.sambalmueslie.gschwind.core.api.Emitter
 import de.sambalmueslie.gschwind.core.api.Receiver
 
 abstract class BaseEmitter<T> : Emitter<T> {
-    private var receiver: Receiver<T>? = null
+    private var receiver = mutableSetOf<Receiver<T>>()
 
     override fun emit(value: T) {
-        receiver?.receive(value)
+        receiver.forEach { r -> r.receive(value) }
     }
 
     override fun connect(receiver: Receiver<T>) {
-        this.receiver = receiver
+        this.receiver.add(receiver)
     }
 }
