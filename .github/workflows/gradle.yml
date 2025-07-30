@@ -2,9 +2,9 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [main, master, development, develop]
+    branches: [ master, development]
   pull_request:
-    branches: [main, master, development, develop]
+    branches: [master, development]
   workflow_dispatch: # Allow manual triggering
 
 env:
@@ -28,6 +28,9 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@v2
 
@@ -35,9 +38,6 @@ jobs:
         uses: gradle/gradle-build-action@v3
         with:
           gradle-home-cache-cleanup: true
-
-      - name: Make gradlew executable
-        run: chmod +x gradlew
 
       - name: Run tests
         run: ./gradlew test --continue --no-daemon
