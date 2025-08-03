@@ -4,8 +4,8 @@ import de.sambalmueslie.gschwind.core.builder.stream
 import de.sambalmueslie.gschwind.lib.operator.filter
 import de.sambalmueslie.gschwind.lib.operator.map
 import de.sambalmueslie.gschwind.lib.sink.log
-
 import org.slf4j.LoggerFactory
+
 import java.lang.Thread.sleep
 
 class SampleApp {
