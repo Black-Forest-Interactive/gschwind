@@ -20,8 +20,8 @@ dependencies {
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.19.2")
 
     // kotlin
-    implementation("org.jetbrains.kotlin:kotlin-reflect:2.2.0")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.2.0")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:2.2.10")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.2.10")
 
     // caching
     implementation("com.github.ben-manes.caffeine:caffeine:3.2.2")
