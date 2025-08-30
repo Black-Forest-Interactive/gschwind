@@ -5,3 +5,7 @@ plugins {
     id("com.google.devtools.ksp")
     jacoco
 }
+
+dependencies {
+    implementation(project(":core"))
+}
