@@ -17,7 +17,7 @@ dependencies {
 
     // jackson
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.20.0")
-    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.19.2")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.20.0")
 
     // kotlin
     implementation("org.jetbrains.kotlin:kotlin-reflect:2.2.10")
