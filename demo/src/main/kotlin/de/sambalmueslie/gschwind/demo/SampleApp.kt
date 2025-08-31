@@ -22,13 +22,13 @@ class SampleApp {
         val s1 = source.stream()
             .map { it.toHexString() }
             .filter { it.startsWith("0000") }
-            .log("All Values")
+            .log(name = "ALL-VALUES")
             .build()
 
         val s2 = source.stream()
             .filter { it % 2 == 0 }
             .map { it.toHexString() }
-            .log("Even Values")
+            .log(name = "EVEN-VALUES")
             .build()
 
         s1.print()
