@@ -8,5 +8,6 @@ plugins {
 
 dependencies {
     implementation(project(":core"))
-    implementation(project(":extension-kafka"))
+
+    api("org.apache.kafka:kafka-clients:4.0.0")
 }
