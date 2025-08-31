@@ -5,3 +5,8 @@ plugins {
     id("com.google.devtools.ksp")
     jacoco
 }
+
+dependencies {
+    // caching
+    implementation("com.github.ben-manes.caffeine:caffeine:3.2.2")
+}
