@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     kotlin("jvm") version "2.2.20"
-    kotlin("plugin.allopen") version "2.2.10"
+    kotlin("plugin.allopen") version "2.2.20"
     kotlin("plugin.serialization") version "2.2.20"
     id("com.google.devtools.ksp") version "2.2.10-2.0.2"
     id("net.researchgate.release") version "3.1.0"
