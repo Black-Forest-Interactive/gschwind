@@ -34,8 +34,8 @@ subprojects {
     dependencies {
         implementation("ch.qos.logback:logback-classic:1.5.19")
 
-        testImplementation("org.junit.jupiter:junit-jupiter-api:5.13.4")
-        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.13.4")
+        testImplementation("org.junit.jupiter:junit-jupiter-api:6.0.0")
+        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:6.0.0")
         testImplementation("io.mockk:mockk:1.14.5")
 
         // jackson
