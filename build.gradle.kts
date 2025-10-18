@@ -36,7 +36,7 @@ subprojects {
 
         testImplementation("org.junit.jupiter:junit-jupiter-api:6.0.0")
         testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:6.0.0")
-        testImplementation("io.mockk:mockk:1.14.5")
+        testImplementation("io.mockk:mockk:1.14.6")
 
         // jackson
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.20.0")
