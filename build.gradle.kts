@@ -32,7 +32,7 @@ subprojects {
     }
 
     dependencies {
-        implementation("ch.qos.logback:logback-classic:1.5.19")
+        implementation("ch.qos.logback:logback-classic:1.5.20")
 
         testImplementation("org.junit.jupiter:junit-jupiter-api:6.0.0")
         testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:6.0.0")
