@@ -43,8 +43,8 @@ subprojects {
         implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.20.0")
 
         // kotlin
-        implementation("org.jetbrains.kotlin:kotlin-reflect:2.2.20")
-        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.2.20")
+        implementation("org.jetbrains.kotlin:kotlin-reflect:2.2.21")
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.2.21")
 
         // coroutines
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
