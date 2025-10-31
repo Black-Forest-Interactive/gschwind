@@ -39,7 +39,7 @@ subprojects {
         testImplementation("io.mockk:mockk:1.14.6")
 
         // jackson
-        implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.20.0")
+        implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.20.1")
         implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.20.0")
 
         // kotlin
