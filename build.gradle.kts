@@ -40,7 +40,7 @@ subprojects {
 
         // jackson
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.20.0")
-        implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.20.0")
+        implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.20.1")
 
         // kotlin
         implementation("org.jetbrains.kotlin:kotlin-reflect:2.2.20")
